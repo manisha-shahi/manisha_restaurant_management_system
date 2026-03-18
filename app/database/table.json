@@ -1,0 +1,277 @@
+[
+    {
+        "table_id": 1,
+        "capacity": 2,
+        "status": "available"
+    },
+    {
+        "table_id": 2,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 3,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 4,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 5,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 6,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 7,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 8,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 9,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 10,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 11,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 12,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 13,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 14,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 15,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 16,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 17,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 18,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 19,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 20,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 21,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 22,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 23,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 24,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 25,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 26,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 27,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 28,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 29,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 30,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 31,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 32,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 33,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 34,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 35,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 36,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 37,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 38,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 39,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 40,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 41,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 42,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 43,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 44,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 45,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 46,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 47,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 48,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 49,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 50,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 51,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 52,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 53,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 54,
+        "capacity": 4,
+        "status": "available"
+    },
+    {
+        "table_id": 55,
+        "capacity": 4,
+        "status": "available"
+    }
+]

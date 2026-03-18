@@ -1,0 +1,20 @@
+[
+    {
+        "username": "manishashahi",
+        "password": "151225",
+        "role": "admin",
+        "email_id": "manushahi@8.com"
+    },
+    {
+        "username": "mahi",
+        "password": "123456",
+        "role": "staff",
+        "email_id": "shahi@gjh.com"
+    },
+    {
+        "username": "manisha",
+        "password": "15122025",
+        "role": "admin",
+        "email_id": "shahi2@.com"
+    }
+]
