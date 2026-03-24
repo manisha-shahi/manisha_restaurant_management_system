@@ -12,12 +12,12 @@ class Info:
         listdata = self.file.read_file("app/database/user.json")
         try:
 
-            username = input("\033[91mplease enter your name :")
+            username = input("\033[91mplease enter your name :").strip().lower()
             password = getpass("please enter your password:")
-            role = input("please enter your role admin/staff :")
+            role = input("please enter your role admin/staff :").strip().lower()
 
             for data in listdata:
-                if( username == data["username"] and password == data["password"] and role == data["role"].lower()):
+                if( username == data["username"].lower() and password == data["password"] and role == data["role"].lower()):
                     print("\033[92mlogin successful ! ")
                     if role == "admin":
                         ob = AdminMenu()

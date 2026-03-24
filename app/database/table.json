@@ -2,12 +2,16 @@
     {
         "table_id": 1,
         "capacity": 2,
-        "status": "available"
+        "status": "booked",
+        "booking_time": "23-08-2026 12",
+        "customer_name": "kartik"
     },
     {
         "table_id": 2,
         "capacity": 4,
-        "status": "available"
+        "status": "booked",
+        "booking_time": "23-08-2026 12",
+        "customer_name": "kartik"
     },
     {
         "table_id": 3,
@@ -16,27 +20,33 @@
     },
     {
         "table_id": 4,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {
         "table_id": 5,
         "capacity": 4,
-        "status": "available"
+        "status": "booked",
+        "booking_time": "02-06-2027 01:00",
+        "customer_name": "karan"
     },
     {
         "table_id": 6,
-        "capacity": 4,
-        "status": "available"
+        "capacity": 2,
+        "status": "booked",
+        "booking_time": "11-10-2026 10:00",
+        "customer_name": "tanuja"
     },
     {
         "table_id": 7,
         "capacity": 4,
-        "status": "available"
+        "status": "booked",
+        "booking_time": "23-08-2026 09:00",
+        "customer_name": "moni"
     },
     {
         "table_id": 8,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {
@@ -46,7 +56,7 @@
     },
     {
         "table_id": 10,
-        "capacity": 4,
+        "capacity": 2,
         "status": "available"
     },
     {
@@ -66,7 +76,7 @@
     },
     {
         "table_id": 14,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {
@@ -81,7 +91,7 @@
     },
     {
         "table_id": 17,
-        "capacity": 4,
+        "capacity": 2,
         "status": "available"
     },
     {
@@ -96,7 +106,7 @@
     },
     {
         "table_id": 20,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {
@@ -111,7 +121,7 @@
     },
     {
         "table_id": 23,
-        "capacity": 4,
+        "capacity": 2,
         "status": "available"
     },
     {
@@ -126,7 +136,7 @@
     },
     {
         "table_id": 26,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {
@@ -146,7 +156,7 @@
     },
     {
         "table_id": 30,
-        "capacity": 4,
+        "capacity": 2,
         "status": "available"
     },
     {
@@ -186,7 +196,7 @@
     },
     {
         "table_id": 38,
-        "capacity": 4,
+        "capacity": 2,
         "status": "available"
     },
     {
@@ -206,7 +216,7 @@
     },
     {
         "table_id": 42,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {
@@ -221,7 +231,7 @@
     },
     {
         "table_id": 45,
-        "capacity": 4,
+        "capacity": 2,
         "status": "available"
     },
     {
@@ -246,7 +256,7 @@
     },
     {
         "table_id": 50,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {
@@ -261,7 +271,7 @@
     },
     {
         "table_id": 53,
-        "capacity": 4,
+        "capacity": 3,
         "status": "available"
     },
     {

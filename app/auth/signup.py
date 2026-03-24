@@ -16,46 +16,46 @@ class Registration:
         data = {}
         try:
             for i in range(3):
-                data["username"] = input("please enter username : ")
+                data["username"] = input("\033[94please enter username : ").strip().lower()
                 obj1=Validation()
                 Name = obj1.username_validation(data["username"])
                 if Name:
                     break
                 else:
-                    print(f"Attempts left: {2-i}")
+                    print(f"\033[97Attempts left: {2-i}")
             else:
                 return
 
             for i in range(3): 
-                data["password"] = getpass("please enter password : ")
+                data["password"] = getpass("\033[94please enter password : ").strip()
                 obj2 = Validation()
                 Paasword = obj2.password_validation(data["password"])
                 if Paasword:
                     break
                 else:
-                    print(f"Attempts left: {2-i}")
+                    print(f"\033[97Attempts left: {2-i}")
             else:
                 return
 
             for i in range(3):
-                data["role"] = input("please enter role admin/staff : ")
+                data["role"] = input("\033[94please enter role admin/staff : ").strip().lower()
                 obj3 = Validation()
                 Role = obj3.role_validation(data["role"])
                 if Role:
                     break
                 else:
-                    print(f"Attempts left: {2-i}")
+                    print(f"\033[97Attempts left: {2-i}")
             else:
                 return 
 
             for i in range(3):
-                data["email_id"] = input("please enter your email id :" )
+                data["email_id"] = input("\033[94please enter your email id :" ).strip().lower()
                 obj4 = Validation()
                 Emailid = obj4.email_validation(data["email_id"])
                 if Emailid:
                     break
                 else:
-                    print(f"Attempts left: {2-i}")
+                    print(f"\033[97Attempts left: {2-i}")
             else:
                 return
 
