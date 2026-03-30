@@ -1,0 +1,33 @@
+[
+    {
+        "table_id": 3,
+        "customer_name": "Karan",
+        "date": "12-11-2026",
+        "start_time": "10:00",
+        "end_time": "12:00"
+    },
+    {
+        "table_id": 4,
+        "customer_name": "Naman",
+        "mobile_no": 1234567898,
+        "date": "11-06-2026",
+        "start_time": "11:00",
+        "end_time": "12:00"
+    },
+    {
+        "table_id": 1,
+        "customer_name": "Manish",
+        "mobile_no": 4567876787,
+        "date": "12-12-2025",
+        "start_time": "12:00",
+        "end_time": "02:00"
+    },
+    {
+        "table_id": 2,
+        "customer_name": "Mahi",
+        "mobile_no": 12334455667,
+        "date": "01-03-2026",
+        "start_time": "12:00",
+        "end_time": "02:00"
+    }
+]

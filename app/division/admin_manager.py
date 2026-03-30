@@ -1,14 +1,11 @@
 from app.file_handler.read_mode import Read_mode
 from app.file_handler.write_mode import Write_mode
-from app.file_handler.append_mode import Append_mode
-from app.menu_manager.item import food_items
-import json 
+
 class Admin_Menu_manager:
     def __init__(self):
         self.food_list = []
         self.file = Read_mode()
         self.writefile = Write_mode()
-        self.appendfile = Append_mode()
      
     def view_food_menu(self):
         try:
@@ -37,8 +34,8 @@ class Admin_Menu_manager:
         try:
             while True:
 
-                category = input("\033[96menter category: ").strip().lower()
-                name = input("enter food name: ").strip().lower()
+                category = input("\033[96menter category: ").title()
+                name = input("enter food name: ").title()
                 half = int(input("enter half plate price: "))
                 full = int(input("enter full plate price: "))
 
@@ -47,7 +44,7 @@ class Admin_Menu_manager:
 
                 data[category][name] = {
                 "half_plate": half,
-                "full_plate": full} 
+                "full_plate": full}  
 
                 print("\033[92mfood added successfully")
                 choice = input("\033[96madd more food? (yes/no): ")
@@ -63,8 +60,8 @@ class Admin_Menu_manager:
         try:
             data = self.file.read_file("app/database/item_data.json")
             
-            category = input("enter category: ").strip().lower()
-            food_name = input("enter food name to update: ").strip().lower()
+            category = input("enter category: ").title()
+            food_name = input("enter food name to update: ").title()
             if category in data and food_name in data[category]:
 
                 half = int(input("enter new half plate price: "))
@@ -80,7 +77,7 @@ class Admin_Menu_manager:
                 print("food not found\033[98m")
         except Exception as e:
             print(e)
-                   
+                    
 
     def delete_food(self):
         try:
@@ -100,3 +97,6 @@ class Admin_Menu_manager:
 
         except Exception as e:
             print(e)
+
+            
+            

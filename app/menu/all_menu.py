@@ -1,7 +1,11 @@
 from app.menu_manager.item import food_items
 from app.division.admin_manager import Admin_Menu_manager
 from app.division.staff_manager import Staff_Menu_manager
-import json
+from app.booking.booking_service import Booking_service
+from app.order.order_service import Order_service
+from app.billing.billing_service import Billing_service
+from app.reports.report import Reports
+
 
 class AdminMenu:
 
@@ -16,7 +20,8 @@ class AdminMenu:
                 print("2. add food item ")
                 print("3. delete food item ")
                 print("4. update food item ") 
-                print("5. exit")
+                print("5. reports ")
+                print("6. exit")
 
                 choice = input("\033[98menter your choice :")
                 if choice.isdigit():
@@ -36,8 +41,10 @@ class AdminMenu:
                     elif choice == 4:
                         ob = Admin_Menu_manager()
                         ob.update_food()
-
                     elif choice == 5:
+                        Reports()
+                        
+                    elif choice == 6:
                         print("thank you for exit ")
                         break
 
@@ -76,17 +83,17 @@ class StaffMenu:
                         ob.view_tables()
 
                     elif choice == 3:
-                        ob = Staff_Menu_manager()
+                        ob = Booking_service()
                         ob.table_booking()
                         
                     elif choice == 4:
-                        ob = Staff_Menu_manager()
+                        ob = Order_service ()
                         ob.take_order()    
                     elif choice == 5:
-                        ob = Staff_Menu_manager()
+                        ob = Order_service ()
                         ob.update_orders()
                     elif choice == 6:
-                        ob = Staff_Menu_manager()
+                        ob = Billing_service()
                         ob.generate_bill()
 
                     else:

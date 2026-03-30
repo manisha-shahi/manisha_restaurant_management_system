@@ -6,7 +6,7 @@ def table_data():
     for i in range(1, 56):   
         table = {
             "table_id": i,
-            "capacity": 4 if i != 1 else 2,  
+            "capacity": 4 ,  
             "status": "available"
         }
         data.append(table)

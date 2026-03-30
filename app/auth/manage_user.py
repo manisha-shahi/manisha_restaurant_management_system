@@ -24,7 +24,7 @@ class Manage_Menu:
                         ob = Info()
                         ob.Login()
                     elif choice == 3:
-                        print("\033[97mthank you for resitration")
+                        print("\033[97mthank you for registration")
                         break
                     else:
                         print("\033[98minvalid choice")
