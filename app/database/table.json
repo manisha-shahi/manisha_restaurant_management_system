@@ -3,25 +3,22 @@
         "table_id": 1,
         "capacity": 2,
         "status": "booked",
-        "customer_name": "Manish"
+        "customer_name": "Karan"
     },
     {
         "table_id": 2,
         "capacity": 4,
-        "status": "booked",
-        "customer_name": "Mahi"
+        "status": "available"
     },
     {
         "table_id": 3,
         "capacity": 4,
-        "status": "booked",
-        "customer_name": "Karan"
+        "status": "available"
     },
     {
         "table_id": 4,
         "capacity": 4,
-        "status": "booked",
-        "customer_name": "Naman"
+        "status": "available"
     },
     {
         "table_id": 5,

@@ -1,6 +1,7 @@
 from app.file_handler.read_mode import Read_mode
 from app.file_handler.write_mode import Write_mode
 from app.division.validation import Validation
+from app.logs.logger import write_log
 from getpass import getpass
 
 
@@ -23,7 +24,7 @@ class Registration:
                 if Name:
                     break
                 else:
-                    print(f"\033[97Attempts left: {2-i}")
+                    print(f"\033[97m Attempts left: {2-i}")
             else:
                 return
 
@@ -34,7 +35,7 @@ class Registration:
                 if Paasword:
                     break
                 else:
-                    print(f"\033[97Attempts left: {2-i}")
+                    print(f"\033[97m Attempts left: {2-i}")
             else:
                 return
 
@@ -45,7 +46,7 @@ class Registration:
                 if Role:
                     break
                 else:
-                    print(f"\033[97Attempts left: {2-i}")
+                    print(f"\033[97m Attempts left: {2-i}")
             else:
                 return 
 
@@ -56,16 +57,58 @@ class Registration:
                 if Emailid:
                     break
                 else:
-                    print(f"\033[97Attempts left: {2-i}")
+                    print(f"\033[97m Attempts left: {2-i}")
             else:
                 return
+            
+            for i in range(3):
+                data["mobile"] = input("\033[94m Enter mobile number: ").strip()
+                obj5 = Validation()
+                Mobile = obj5.mobile_no_validation(data["mobile"])
+                if Mobile:
+                    break
+                else:
+                    print(f"\033[91m Attempts left: {2-i}")
+            else:
+                return
+            
+            for i in range(3):
+                data["aadhar"] = input("\033[94m Enter Aadhaar number: ").strip()
+                obj6 = Validation()
+                Aadhar = obj6.aadhar_validation(data["aadhar"])
+                if Aadhar:
+                    break
+                else:
+                    print(f"\033[91m Attempts left: {2-i}")
+            else:
+                return
+            
+            data["city"] = input("\033[94m Enter city: ").strip().lower()
 
-            if Name and Paasword and Role and Emailid:
+            for i in range(3):
+                data["qualification"] = input("Enter qualification: ").strip().lower()
+                obj7 = Validation()
+                Qualification = obj7.qualification_validation(data["qualification"])
+                if Qualification:
+                    break
+
+            for i in range(3):
+                data["language"] = input("\033[94m Enter languages you know ( hindi / english ): ").strip().lower()
+                obj8 = Validation()
+                Language = obj8.language_validation(data["language"])
+                if Language:
+                    break
+
+
+            if Name and Paasword and Role and Emailid and Mobile and Aadhar and Qualification and Language :
                 listdata.append(data)
                 self.writefile.write_file("app/database/user.json",listdata)
                 print("\033[95m signup successful")
+                write_log("Signup successful: " + data["username"])
+               
             else:
-                print("signup not sccuessfuly")
+                print("\033[91m signup not sccuessfuly")
+                write_log("signup not sccuessfuly :" +data["username"])
         
         except Exception as e:
             print(e)

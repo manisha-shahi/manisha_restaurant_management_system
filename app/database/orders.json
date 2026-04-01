@@ -1,12 +1,18 @@
 {
-    "4": {
-        "customer_name": "Naman",
+    "1": {
+        "customer_name": "Karan",
         "items": [
             {
                 "item": "coffee",
                 "size": "full",
                 "quantity": 1,
                 "price": 60
+            },
+            {
+                "item": "lassi",
+                "size": "full",
+                "quantity": 1,
+                "price": 80
             }
         ]
     }

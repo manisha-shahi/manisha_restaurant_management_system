@@ -3,18 +3,22 @@
         "username": "manishashahi",
         "password": "151225",
         "role": "admin",
-        "email_id": "shahi@.com"
+        "email_id": "shahimannu8@.com",
+        "mobile": "8534837369",
+        "aadhar": "123498762378",
+        "city": "bageshwar",
+        "qualification": "bsc",
+        "language": "english"
     },
     {
         "username": "tanuja",
         "password": "shahi11",
         "role": "staff",
-        "email_id": "shahitanu@.com"
-    },
-    {
-        "username": "mahi",
-        "password": "123456",
-        "role": "staff",
-        "email_id": "mahishahi@.com"
+        "email_id": "shahi@gmail.com",
+        "mobile": "8976543456",
+        "aadhar": "123409876543",
+        "city": "haldwani",
+        "qualification": "bsc",
+        "language": "english"
     }
 ]

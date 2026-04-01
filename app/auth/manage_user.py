@@ -9,10 +9,10 @@ class Manage_Menu:
                 print("\033[94m========================================\033[94m")
                 print("\033[92m ********* Velvet Valley Restaurant ********* ")
                 print("\033[94m========================================\033[94m")
-                print("\033[92m *******registration*******\033[92m")
-                print("\033[91m 1. signup ")
-                print("\033[91m 2. login ")
-                print("\033[91m 3. exit ")
+                print("\033[92m *******Registration*******\033[92m")
+                print("\033[91m 1. SIGNUP ")
+                print("\033[91m 2. LOGIN  ")
+                print("\033[91m 3. EXIT ")
 
                 choice = input("\033[96mplease enter your choice :")
                 if choice.isdigit():
@@ -24,10 +24,10 @@ class Manage_Menu:
                         ob = Info()
                         ob.Login()
                     elif choice == 3:
-                        print("\033[97mthank you for registration")
+                        print("\033[97m Thank you for registration")
                         break
                     else:
-                        print("\033[98minvalid choice")
+                        print("\033[91m Invalid choice")
 
         except Exception as e:
             print(e)

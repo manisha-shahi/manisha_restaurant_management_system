@@ -1,6 +1,7 @@
 from app.file_handler.read_mode import Read_mode
 from app.file_handler.write_mode import Write_mode
 from app.menu_manager.item import food_items
+from app.logs.logger import write_log
 
 
 
@@ -28,7 +29,7 @@ class Order_service:
                     table_found = True
                     break
             if not table_found:
-                print("Table is not booked yet")
+                print("\033[91m Table is not booked yet")
                 return
 
             print(f"\nOrder for {customer_name} (Table {table_no})")
@@ -56,7 +57,7 @@ class Order_service:
 
                             quantity = input("\033[98mEnter quantity: ")
                             if not quantity.isdigit():
-                                print("invalid quantity ")
+                                print("\033[91m invalid quantity ")
                                 return
                             
                             quantity = int(quantity)
@@ -68,9 +69,10 @@ class Order_service:
                                 "price": price
                             })
                             print("Item added ")
+                            
                             break
                 if not found_in_menu:
-                    print("Item not found in menu. Try again.")
+                    print("\033[91m Item not found in menu. Try again.")
             if order_items:
 
                 order_data[table_no] = {
@@ -80,7 +82,8 @@ class Order_service:
 
                 self.writefile.write_file("app/database/orders.json", order_data)
 
-                print("Order saved successfully ")
+                print("\033[92mOrder saved successfully ")
+                write_log("order save successfully : ")
                     
             else:
                 print("No items ordered")
@@ -105,14 +108,14 @@ class Order_service:
 
             print("Current:", item["item"], "x", item["quantity"])
 
-            more = input("add another item (yes/no): ").lower()
+            more = input("\033[92madd another item (yes/no): ").lower()
 
             if more == "yes":
-                new_item = input("Enter item name: ")
-                size = input("Enter size (half/full): ")
-                quantity = input("Enter quantity: ")
+                new_item = input("\033[93m Enter item name: ")
+                size = input("\033[93m Enter size (half/full): ")
+                quantity = input("\033[93m Enter quantity: ")
                 if not quantity.isdigit():
-                    print("invalid quantity ")
+                    print("\033[91m invalid quantity ")
                     return
                
 
@@ -123,11 +126,12 @@ class Order_service:
                 }
 
                 order["items"].append(new_data)
-                print("New item added ")
+                print("\033[92m New item added ")
 
             self.writefile.write_file("app/database/orders.json", data)
 
-            print("Order updated successfully ")
+            print("\033[92m Order updated successfully ")
+            write_log("order updated successfully table no  :" ,table_no)
 
         except Exception as e:
             print("Error:",e)

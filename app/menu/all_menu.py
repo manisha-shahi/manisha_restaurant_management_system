@@ -1,10 +1,11 @@
-from app.menu_manager.item import food_items
+
 from app.division.admin_manager import Admin_Menu_manager
 from app.division.staff_manager import Staff_Menu_manager
 from app.booking.booking_service import Booking_service
 from app.order.order_service import Order_service
 from app.billing.billing_service import Billing_service
-from app.reports.report import Reports
+from app.reports.report_menu import Reportmenu
+
 
 
 class AdminMenu:
@@ -16,14 +17,14 @@ class AdminMenu:
                 print("\033[94m==========================")
                 print("\033[92m ****ADMIN MENU**** ")
                 print("\033[94m==========================")
-                print("1. view food item ")
-                print("2. add food item ")
-                print("3. delete food item ")
-                print("4. update food item ") 
-                print("5. reports ")
-                print("6. exit")
+                print("1. View Food Item ")
+                print("2. Add Food Item ")
+                print("3. Delete Food Item ")
+                print("4. Update Food Item ") 
+                print("5. Reports ")
+                print("6. Exit")
 
-                choice = input("\033[98menter your choice :")
+                choice = input("\033[98m Enter your choice :")
                 if choice.isdigit():
                     choice = int(choice)
                     if choice == 1:
@@ -42,14 +43,14 @@ class AdminMenu:
                         ob = Admin_Menu_manager()
                         ob.update_food()
                     elif choice == 5:
-                        Reports()
-                        
+                        ob = Reportmenu()
+                        ob.menu()
                     elif choice == 6:
                         print("thank you for exit ")
                         break
 
                     else:
-                        print("\033[91invalid choice.")
+                        print("\033[91m Invalid choice.")
 
         except Exception as e:
             print(e)
@@ -63,15 +64,15 @@ class StaffMenu:
                 print("\033[94m==========================")
                 print("\033[95m ****STAFF MENU**** ")
                 print("\033[94m==========================")
-                print("1. view food menu ")
-                print("2. view tables ")
-                print("3. table booking ")
-                print("4. take order" )
+                print("1. View Food Menu ")
+                print("2. View Tables ")
+                print("3. Table Booking ")
+                print("4. Take Order" )
                 print("5. Update Order ")
-                print("6. generate bill")
-                print("7. exit")
+                print("6. Generate Bill")
+                print("7. Exit")
 
-                choice = input("\033[94menter your choice :")
+                choice = input("\033[94m Enter your choice :")
                 if choice.isdigit():
                     choice = int(choice)
                     if choice ==1:
@@ -97,7 +98,7 @@ class StaffMenu:
                         ob.generate_bill()
 
                     else:
-                        print("\033[91invalid choice. ")
+                        print("\033[91m Invalid choice. ")
 
         except Exception as e:
             print(e)

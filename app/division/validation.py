@@ -10,11 +10,10 @@ class Validation:
             return False
 
         if not username.isalpha():
-            print("\033[9m username must contain only letters")
+            print("\033[91m username must contain only letters")
             return False
 
         else:
-            print("\033[92m valid username")
             return True   
     
 
@@ -33,7 +32,6 @@ class Validation:
             return False
 
         else:
-            print("\033[92m valid password")
             return True
 
 
@@ -48,7 +46,6 @@ class Validation:
             return False
 
         else:
-            print("\033[92m valid role")
             return True
 
     def email_validation(self, email):
@@ -66,42 +63,51 @@ class Validation:
             return False
 
         else:
-            print("\033[92m valid email")
             return True
         
-    def table_no_validation(self,table_no):
-        if not table_no.isdigit():
-            print("only number are valid")
-            return False
-        
-        if table_no <= 1 or table_no >= 55:
-            print("please enter valid number ")
-            return False
-        
-        else:
-            print("valid table no")
-            return True
-            
-    def people_validation(self,people):
-        if not people.isdigit():
-            print("please enter valid number")
-            return False
-        else:
-            print("valid people ")
             
     def mobile_no_validation(self,mobile_no):
-        if mobile_no.isdigit():
-            print("please enter valid mobile number")
+        if not  mobile_no.isdigit():
+            print("\033[91m please enter valid mobile number")
             return False
         
-        if len(mobile_no) == 10:
+        if  len(mobile_no) != 10:
             print("\033[91m invalid mobile no")
             return False
         
         else:
-            print("valid mobile number")
+            return True
         
+    def aadhar_validation(self, aadhar):
+        if not aadhar.isdigit():
+            print("\033[91m Aadhaar must contain only digits")
+            return False
 
-    
+        if len(aadhar) != 12:
+            print("\033[91m Aadhaar must be 12 digits")
+            return False
+
+        else:
+            return True
+
+    def qualification_validation(self, qualification):
+
+        valid_qualifications = ["12th", "graduate", "bsc" , "bca", "mca", "btech", "mba"]
+
+        if qualification not in valid_qualifications:
+            print("\033[91m minimum qualification must be 12th pass")
+            return False
+        else:
+            return True
+        
+    def language_validation(self, language):
+
+        valid_languages = ["hindi","english"]
+
+        if language not in valid_languages:
+            print("\033[91m invalid language")
+            return False
+        else:
+            return True
 
    

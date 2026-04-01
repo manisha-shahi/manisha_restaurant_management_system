@@ -2,6 +2,7 @@ from app.file_handler.read_mode import Read_mode
 from app.file_handler.write_mode import Write_mode
 from datetime import datetime
 from app.division.validation import Validation
+from app.logs.logger import write_log
 
 
 
@@ -16,28 +17,29 @@ class Booking_service:
             data = self.file.read_file("app/database/table.json")
             bookings = self.file.read_file("app/database/booking.json")
 
-            customer_name = input("Enter customer name: ").title()
+            customer_name = input("\033[93mEnter customer name: ").title()
             obj1=Validation()
-            obj1.username_validation(customer_name)
-        
-            people = int(input("Enter number of people: "))
-            obj1=Validation()
-            obj1.people_validation(people)
+            if not obj1.username_validation(customer_name):
+                print("\033[91minvalid customer name")
+                return
             
-            table_no = int(input("Enter table number to book: "))
-            obj1=Validation()
-            obj1.table_no_validation(table_no)
+            people = int(input("\033[93m Enter number of people: "))
             
-            mobile_no = int(input("Please enter mobile number :"))
+            table_no = int(input("\033[93m Enter table number to book: "))
+               
+            mobile_no = input("\033[93m Please enter mobile number :").strip()
             obj1=Validation()
-            obj1.mobile_no_validation(mobile_no)
-            date = input("Enter booking date (DD-MM-YYYY): ")
+            if not obj1.mobile_no_validation(mobile_no):
+                print("\033[91m invalid mobile number")
+                return
+            
+            date = input("\033[93m Enter booking date (DD-MM-YYYY): ")
             datetime.strptime(date, "%d-%m-%Y")
             
-            start_time = input("Enter booking starting time (HH:MM): ")
+            start_time = input("\033[93m Enter booking starting time (HH:MM): ")
             datetime.strptime(start_time, "%H:%M")
             
-            end_time = input("Enter booking ending time (HH:MM): ")
+            end_time = input("\033[93m Enter booking ending time (HH:MM): ")
             datetime.strptime(end_time, "%H:%M")
             
 
@@ -49,7 +51,7 @@ class Booking_service:
 
                 
                     if table["capacity"] < people:
-                        print("Table capacity not enough ")
+                        print("\033[91m Table capacity not enough ")
                         return
                     
                     for details in bookings:
@@ -76,12 +78,13 @@ class Booking_service:
                     self.writefile.write_file("app/database/booking.json", bookings)
 
                     print(f"Table {table_no} booked successfully")
+                    write_log("booked successfully :", customer_name)
                     print("customer name:", customer_name)
                     print("booking time:", f"{date} {start_time} : {end_time}")
                     return
 
             if not found:
-                print("Table not found ")
+                print("\033[91m Table not found ")
 
         except Exception as e:
             print("Error:", e)
