@@ -1,26 +1,26 @@
-from app.file_handler.read_mode import Read_mode
+from app.division.json_manage import Json_Class
 from datetime import datetime
+from app.logs.logger import write_log
 
 class Billing_service:
-    def __init__(self):
-        self.file = Read_mode()
     
     def generate_bill(self):
         try:
             today = datetime.now().strftime("%d-%m-%Y %H:%M")
             table_no = input("\033[93m Enter Table Number for Bill: ").strip()
-            data = self.file.read_file("app/database/orders.json")
+            json_obj2 = Json_Class()
+            order_data = json_obj2.read_orders()
 
-            if not data:
+            if not order_data:
                 print("\033[91m No orders available!")
                 return
 
-            if table_no not in data:
+            if table_no not in order_data:
                 print("\033[91m No order found for this table")
                 print("\033[93m Please take order first")
                 return
 
-            order = data[table_no]
+            order = order_data[table_no]
 
             if type(order) == dict:
                 if "customer_name" in order:
@@ -60,7 +60,6 @@ class Billing_service:
 
             print("-"*65)
 
-          
             gst = total * 0.05
             final_total = total + gst
 
@@ -74,3 +73,4 @@ class Billing_service:
 
         except Exception as e:
             print("Error:", e)
+            write_log("ERROR", f"Error during signup: {e}")

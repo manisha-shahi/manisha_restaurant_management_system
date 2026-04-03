@@ -5,6 +5,7 @@ from app.booking.booking_service import Booking_service
 from app.order.order_service import Order_service
 from app.billing.billing_service import Billing_service
 from app.reports.report_menu import Reportmenu
+from app.logs.logger import write_log
 
 
 
@@ -48,12 +49,12 @@ class AdminMenu:
                     elif choice == 6:
                         print("thank you for exit ")
                         break
-
                     else:
                         print("\033[91m Invalid choice.")
 
         except Exception as e:
-            print(e)
+            print("Error:",e)
+            write_log("ERROR", "Error during signup: ",e)
 
 class StaffMenu:
 
@@ -96,10 +97,13 @@ class StaffMenu:
                     elif choice == 6:
                         ob = Billing_service()
                         ob.generate_bill()
-
+                    elif choice == 7:
+                        print("thank you for exit ")
+                        break
                     else:
                         print("\033[91m Invalid choice. ")
 
         except Exception as e:
-            print(e)
+            print("Error:",e)
+            write_log("ERROR", "Error during signup: ",e)
 

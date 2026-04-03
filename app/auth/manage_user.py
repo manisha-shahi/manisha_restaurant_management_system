@@ -1,5 +1,6 @@
 from app.auth.login import Info
 from app.auth.signup import Registration
+from app.logs.logger import write_log
 
 class Manage_Menu:
     def Manage(self):
@@ -30,5 +31,6 @@ class Manage_Menu:
                         print("\033[91m Invalid choice")
 
         except Exception as e:
-            print(e)
+            print("Error:",e)
+            write_log("ERROR", f"Error during signup: {e}")
 

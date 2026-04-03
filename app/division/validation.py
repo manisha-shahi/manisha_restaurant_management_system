@@ -61,10 +61,11 @@ class Validation:
         if "@" not in email or ".com" not in email:
             print("\033[91m invalid email")
             return False
-
+        if email.count("@") != 1:
+            print("\033[91m email must contain only one @")
+            return False
         else:
             return True
-        
             
     def mobile_no_validation(self,mobile_no):
         if not  mobile_no.isdigit():
@@ -89,13 +90,34 @@ class Validation:
 
         else:
             return True
+    def city_validation(self, city):
+
+        if city == "":
+            print("\033[91m city cannot be empty")
+            return False
+
+      
+        if any(char.isdigit() for char in city):
+            print("\033[91m city cannot contain numbers")
+            return False
+
+        if not city.replace(" ", "").isalpha():
+            print("\033[91m city must contain only letters")
+            return False
+
+        
+        if len(city) < 5:
+            print("\033[91m city name too short")
+            return False
+
+        return True
 
     def qualification_validation(self, qualification):
 
         valid_qualifications = ["12th", "graduate", "bsc" , "bca", "mca", "btech", "mba"]
 
         if qualification not in valid_qualifications:
-            print("\033[91m minimum qualification must be 12th pass")
+            print("\033[91m minimum qualification must be [12th,gradute, bsc,bca,mca,btech,mba] pass")
             return False
         else:
             return True

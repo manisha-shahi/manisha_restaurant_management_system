@@ -1,20 +1,16 @@
-from app.file_handler.read_mode import Read_mode
-from app.file_handler.write_mode import Write_mode
+
+from app.division.json_manage import Json_Class
 from app.division.validation import Validation
 from app.logs.logger import write_log
 from getpass import getpass
 
-
-
 listdata = []
 class Registration:
-    def __init__(self):
-        self.file = Read_mode()
-        self.writefile = Write_mode()
-        
+       
     def signup(self):
         try:
-            listdata = self.file.read_file("app/database/user.json")
+            json_obj1 = Json_Class()
+            listdata = json_obj1.read_user()
             data = {}
         
             for i in range(3):
@@ -83,7 +79,16 @@ class Registration:
             else:
                 return
             
-            data["city"] = input("\033[94m Enter city: ").strip().lower()
+            for i in range(3):
+                data["city"] = input("\033[94m Enter city: ").strip().lower()
+                obj = Validation()
+                city = obj.city_validation(data["city"])
+                if city:
+                    break
+                else:
+                    print(f"Attempts left: {2-i}")
+            else:
+                return
 
             for i in range(3):
                 data["qualification"] = input("Enter qualification: ").strip().lower()
@@ -102,16 +107,18 @@ class Registration:
 
             if Name and Paasword and Role and Emailid and Mobile and Aadhar and Qualification and Language :
                 listdata.append(data)
-                self.writefile.write_file("app/database/user.json",listdata)
+                json_obj1.write_user(listdata)
                 print("\033[95m signup successful")
-                write_log("Signup successful: " + data["username"])
+                
+                write_log("Signup successful: " , data["username"])
                
             else:
-                print("\033[91m signup not sccuessfuly")
-                write_log("signup not sccuessfuly :" +data["username"])
+                print("\033[91m signup not successfully")
+                write_log("signup not successfully :" , data["username"])
         
         except Exception as e:
-            print(e)
+            print("Error:",e)
+            write_log("ERROR", "Error during signup: ",e)
         
 
 

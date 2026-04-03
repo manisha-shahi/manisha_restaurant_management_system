@@ -1,40 +1,43 @@
-from app.file_handler.read_mode import Read_mode
-from app.file_handler.write_mode import Write_mode
+from app.division.json_manage import Json_Class
 from app.menu_manager.item import food_items
 from app.logs.logger import write_log
 
 
-
-
 class Order_service:
     def __init__(self):
-        self.file = Read_mode()
-        self.writefile = Write_mode()
         self.tables = {}
-         
+
     def take_order(self):
-        data = food_items()
         try:
-        
-            order_data = self.file.read_file("app/database/orders.json")
-            table_data = self.file.read_file("app/database/table.json")
-                
-            table_no = int(input("\033[97mEnter Table Number: "))
-           
+            json_obj2 = Json_Class()
+            order_data = json_obj2.read_orders()
+
+            if not order_data:
+                order_data = {}
+
+            json_obj3 = Json_Class()
+            tables = json_obj3.read_table()   
+
+            menu = food_items()  
+
+            table_no = int(input("Enter Table Number: "))
+
             table_found = False
             customer_name = ""
-            for t in table_data:
-                if t["table_id"] == table_no :
+
+            for t in tables:
+                if t["table_id"] == table_no:
                     customer_name = t["customer_name"]
                     table_found = True
                     break
+
             if not table_found:
-                print("\033[91m Table is not booked yet")
+                print("Table is not booked yet")
                 return
 
             print(f"\nOrder for {customer_name} (Table {table_no})")
 
-            order_items = []   
+            order_items = []
 
             while True:
                 item_name = input("Enter Item Name (or 'done' to finish): ").strip().lower()
@@ -44,80 +47,86 @@ class Order_service:
 
                 found_in_menu = False
 
-                for category, items in data.items():
+                for category, items in menu.items():  
                     for name, details in items.items():
-                        if name.lower() == item_name.lower():
+                        if name.lower() == item_name:
                             found_in_menu = True
-                            
-                            size = input("\033[94mEnter size (half/full): ").strip().lower()
+
+                            size = input("Enter size (half/full): ").strip().lower()
                             if size not in ["half", "full"]:
                                 print("Invalid size")
-                                break
+                                continue
+
                             price = details[f"{size}_plate"]
 
-                            quantity = input("\033[98mEnter quantity: ")
+                            quantity = input("Enter quantity: ")
                             if not quantity.isdigit():
-                                print("\033[91m invalid quantity ")
-                                return
-                            
+                                print("Invalid quantity")
+                                continue
+
                             quantity = int(quantity)
-        
+
                             order_items.append({
                                 "item": item_name,
                                 "size": size,
                                 "quantity": quantity,
                                 "price": price
                             })
-                            print("Item added ")
-                            
-                            break
-                if not found_in_menu:
-                    print("\033[91m Item not found in menu. Try again.")
-            if order_items:
 
-                order_data[table_no] = {
+                            print("Item added")
+                            break
+
+                if not found_in_menu:
+                    print("Item not found in menu")
+
+            if order_items:
+                order_data[str(table_no)] = {  
                     "customer_name": customer_name,
                     "items": order_items
                 }
 
-                self.writefile.write_file("app/database/orders.json", order_data)
+                json_obj2.write_orders(order_data)
 
-                print("\033[92mOrder saved successfully ")
-                write_log("order save successfully : ")
-                    
+                print("Order saved successfully")
+                # write_log(f"Order saved for table {table_no}")   
+
             else:
                 print("No items ordered")
 
         except Exception as e:
             print("Error:", e)
-            
+            # write_log(f"Error during order: {e}")   
+
     def update_orders(self):
         try:
-            data = self.file.read_file("app/database/orders.json")
+            json_obj2 = Json_Class()
+            order_data = json_obj2.read_orders()
+
             table_no = input("Enter Table Number: ").strip()
 
-            if table_no not in data:
+            if table_no not in order_data:
                 print("No order found")
                 return
 
-            order = data[table_no]
+            order = order_data[table_no]
 
             print("Customer:", order["customer_name"])
 
             item = order["items"][0]
-
             print("Current:", item["item"], "x", item["quantity"])
 
-            more = input("\033[92madd another item (yes/no): ").lower()
+            more = input("Add another item (yes/no): ").lower()
 
             if more == "yes":
-                new_item = input("\033[93m Enter item name: ")
-                size = input("\033[93m Enter size (half/full): ")
-                quantity = input("\033[93m Enter quantity: ")
+                new_item = input("Enter item name: ")
+                size = input("Enter size (half/full): ")
+                quantity = input("Enter quantity: ")
+
                 if not quantity.isdigit():
-                    print("\033[91m invalid quantity ")
+                    print("Invalid quantity")
                     return
-               
+
+                quantity = int(quantity)
 
                 new_data = {
                     "item": new_item,
@@ -126,14 +135,13 @@ class Order_service:
                 }
 
                 order["items"].append(new_data)
-                print("\033[92m New item added ")
+                print("New item added")
 
-            self.writefile.write_file("app/database/orders.json", data)
+            json_obj2.write_orders(order_data)
 
-            print("\033[92m Order updated successfully ")
-            write_log("order updated successfully table no  :" ,table_no)
+            print("Order updated successfully")
+            # write_log(f"Order updated for table {table_no}")   
 
         except Exception as e:
-            print("Error:",e)
-            
-    
+            print("Error:", e)
+            write_log("Error during update: ",e)   

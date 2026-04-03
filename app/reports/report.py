@@ -1,17 +1,17 @@
-from app.file_handler.read_mode import Read_mode
+
+from app.division.json_manage import Json_Class
+from app.logs.logger import write_log
 
 class ReportManager:
-    def __init__(self):
-        self.file = Read_mode()
-
    
     def sales_report(self):
         try:
-            data = self.file.read_file("app/database/orders.json")
-
+            json_obj2 = Json_Class()
+            order_data = json_obj2.read_orders()
+            
             sales_per_day = {}
 
-            for table_no, order in data.items():
+            for table_no, order in order_data.items():
                 if type(order) == dict:
                     items = order["items"] if "items" in order else []
                     order_date = order["date"] if "date" in order else "Unknown"
@@ -30,7 +30,7 @@ class ReportManager:
                 else:
                     sales_per_day[order_date] = day_total
 
-            print("\n📊 SALES PER DAY")
+            print("\n SALES PER DAY")
             print("="*40)
             for date in sales_per_day:
                 print(f"{date:<15}  Total Sales: ₹{sales_per_day[date]}")
@@ -48,15 +48,19 @@ class ReportManager:
 
         except Exception as e:
             print("Error:", e)
+            write_log("Error during signup: ",e)
+            
+            
 
    
     def booking_report(self):
         try:
-            data = self.file.read_file("app/database/booking.json")
+            json_obj4 = Json_Class()
+            bookings = json_obj4.read_booking()
 
             booking_per_day = {}
 
-            for booking in data:
+            for booking in bookings:
                 date = booking["date"] if "date" in booking else "Unknown"
                 if date in booking_per_day:
                     booking_per_day[date] += 1
@@ -68,7 +72,6 @@ class ReportManager:
             for date in booking_per_day:
                 print(f"{date:<15}  Bookings: {booking_per_day[date]}")
             print("="*40)
-
           
             top_day = None
             max_booking = 0
@@ -82,15 +85,18 @@ class ReportManager:
 
         except Exception as e:
             print("Error:", e)
+            write_log("Error during signup: ",e)
 
    
     def menu_report(self):
         try:
-            data = self.file.read_file("app/database/orders.json")
-
+        
+            json_obj2 = Json_Class()
+            order_data = json_obj2.read_orders()
+            
             dish_count = {}
 
-            for table_no, order in data.items():
+            for table_no, order in order_data.items():
                 if type(order) == dict:
                     items = order["items"] if "items" in order else []
                 else:
@@ -122,3 +128,4 @@ class ReportManager:
 
         except Exception as e:
             print("Error:", e)
+            write_log("Error during signup: ",e)

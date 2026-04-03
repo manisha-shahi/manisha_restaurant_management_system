@@ -20,5 +20,60 @@
         "city": "haldwani",
         "qualification": "bsc",
         "language": "english"
+    },
+    {
+        "username": "kumkum",
+        "password": "shahi12",
+        "role": "admin",
+        "email_id": "kumkum@gmail.com",
+        "mobile": "3456787654",
+        "aadhar": "234567876543",
+        "city": "delhi",
+        "qualification": "bca",
+        "language": "english"
+    },
+    {
+        "username": "aarabh",
+        "password": "khetwal",
+        "role": "staff",
+        "email_id": "aaru@gmail.com",
+        "mobile": "3457658765",
+        "aadhar": "987658765456",
+        "city": "delhi",
+        "qualification": "12th",
+        "language": "english"
+    },
+    {
+        "username": "babita",
+        "password": "1234567",
+        "role": "admin",
+        "email_id": "babita12@gmail.com",
+        "mobile": "7500997330",
+        "aadhar": "898989898989",
+        "city": "bageshwar",
+        "qualification": "bsc",
+        "language": "hindi"
+    },
+    {
+        "username": "aanu",
+        "password": "123456",
+        "role": "admin",
+        "email_id": "annnu@45gmail.com",
+        "mobile": "4567656765",
+        "aadhar": "345434545456",
+        "city": "delhi",
+        "qualification": "bsc",
+        "language": "english"
+    },
+    {
+        "username": "jhgjg",
+        "password": "123456",
+        "role": "admin",
+        "email_id": "hgfg@jhgyj.com",
+        "mobile": "3457656765",
+        "aadhar": "545456765456",
+        "city": "delhi",
+        "qualification": "12th",
+        "language": "english"
     }
 ]

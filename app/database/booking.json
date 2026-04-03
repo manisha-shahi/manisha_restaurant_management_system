@@ -1,10 +1,26 @@
 [
     {
         "table_id": 1,
-        "customer_name": "Karan",
-        "mobile_no": "8656765456",
-        "date": "23-02-2026",
-        "start_time": "10:00",
-        "end_time": "12:00"
+        "customer_name": "Mayank",
+        "mobile_no": "1234567875",
+        "date": "11-12-2026",
+        "start_time": "09:00",
+        "end_time": "10:00"
+    },
+    {
+        "table_id": 2,
+        "customer_name": "Himani",
+        "mobile_no": "4565456766",
+        "date": "12-12-2026",
+        "start_time": "08:00",
+        "end_time": "09:00"
+    },
+    {
+        "table_id": 3,
+        "customer_name": "Bhawana",
+        "mobile_no": "1234567898",
+        "date": "11-07-2026",
+        "start_time": "01:00",
+        "end_time": "02:00"
     }
 ]

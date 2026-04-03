@@ -1,24 +1,23 @@
-from app.file_handler.read_mode import Read_mode
-from app.file_handler.write_mode import Write_mode
-
+from app.logs.logger import write_log
+from app.division.json_manage import Json_Class
 
 class Staff_Menu_manager:
 
     def __init__(self):
-        self.file = Read_mode()
-        self.writefile = Write_mode()
         self.tables = {}
     
     def view_food_menu(self):
         try:
-            data = self.file.read_file("app/database/item_data.json")
+            
+            json_obj5 = Json_Class()
+            item_data = json_obj5.read_item()
             print("\n\033[94m ==============================================")
             print("\033[92m ********* Velvet Valley Restaurant ********* ")
             print("\033[94m=================================================\033[94m")
             print(" \033[92m          RESTAURANT FOOD MENU")
             print("\n\033[94m=================================\033[94m")
 
-            for category, items in data.items():
+            for category, items in item_data.items():
 
                 print(f"\n\033[96m---- {category} ----")
 
@@ -30,10 +29,12 @@ class Staff_Menu_manager:
                     print(f"{name:<25}  Half: ₹{half:<5}  Full: ₹{full}")
         except Exception as e:
             print("Error:",e)
+            write_log("ERROR", f"Error during signup: {e}")
 
     def view_tables(self):
         try:
-            data = self.file.read_file("app/database/table.json")
+            json_obj3 = Json_Class()
+            data = json_obj3.read_table()
 
             print("\n===== TABLE DETAILS =====\n")
 
@@ -45,3 +46,4 @@ class Staff_Menu_manager:
         
         except Exception as e:
             print("Error:", e)
+            write_log("ERROR", f"Error during signup: {e}")

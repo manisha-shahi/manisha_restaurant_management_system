@@ -1,5 +1,4 @@
-from app.file_handler.read_mode import Read_mode
-from app.file_handler.write_mode import Write_mode
+from app.division.json_manage import Json_Class
 from datetime import datetime
 from app.division.validation import Validation
 from app.logs.logger import write_log
@@ -8,14 +7,16 @@ from app.logs.logger import write_log
 
 class Booking_service:
     def __init__(self):
-        self.file = Read_mode()
-        self.writefile = Write_mode()
+        
         self.tables = {}
         
     def table_booking(self):
         try:
-            data = self.file.read_file("app/database/table.json")
-            bookings = self.file.read_file("app/database/booking.json")
+            json_obj3 = Json_Class()
+            data = json_obj3.read_table()
+            
+            json_obj4 = Json_Class()
+            bookings = json_obj4.read_booking()
 
             customer_name = input("\033[93mEnter customer name: ").title()
             obj1=Validation()
@@ -73,9 +74,9 @@ class Booking_service:
                     }
 
                     bookings.append(new_booking)
-
-                    self.writefile.write_file("app/database/table.json", data)
-                    self.writefile.write_file("app/database/booking.json", bookings)
+                    
+                    json_obj3.write_table(data)
+                    json_obj4.write_booking(bookings)
 
                     print(f"Table {table_no} booked successfully")
                     write_log("booked successfully :", customer_name)
@@ -88,5 +89,6 @@ class Booking_service:
 
         except Exception as e:
             print("Error:", e)
+            write_log("ERROR", f"Error during signup: {e}")
             
     

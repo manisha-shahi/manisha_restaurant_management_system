@@ -1,7 +1,7 @@
 from datetime import datetime
 
-def write_log(message):
+def write_log(level,message):
     with open("app/logs/log.txt","a") as file:
         time= datetime.now()
-        file.write( str(time) + "-" + message + "\n" )
+        file.write(f"{time} - {level} - {message}\n")
         

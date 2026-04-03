@@ -1,25 +1,52 @@
-from app.file_handler.read_mode import Read_mode
+from app.division.json_manage import Json_Class
 from app.menu.all_menu import AdminMenu, StaffMenu
 from getpass import getpass
+from app.division.validation import Validation
 from app.logs.logger import write_log
 
 class Info: 
-    def __init__(self):
-        self.file = Read_mode()
 
-    
     def Login(self):
-        listdata = self.file.read_file("app/database/user.json")
+        
+        json_obj1 = Json_Class()
+        listdata = json_obj1.read_user()
+        
         try:
-
-            username = input("\033[93m please enter your name :").strip()
-            password = getpass("\033[93m please enter your password:").strip()
-            role = input("\033[93m please enter your role admin/staff :").strip().lower()
-
+            for i in range(3):
+                username = input("\033[93m please enter your name :").strip().lower()
+                obj1=Validation()
+                Name = obj1.username_validation("username")
+                if Name:
+                    break
+                else:
+                    print(f"\033[97m Attempts left: {2-i}")
+            else:
+                return
+            
+            for i in range(3):
+                password = getpass("\033[93m please enter your password:").strip()
+                obj2 = Validation()
+                Paasword = obj2.password_validation(password)
+                if Paasword:
+                    break
+                else:
+                        print(f"\033[97m Attempts left: {2-i}")
+            else:
+                return
+            for i in range(3):
+                role = input("\033[94m please enter role admin/staff : ").strip().lower()
+                obj3 = Validation()
+                Role = obj3.role_validation(role)
+                if Role:
+                    break
+                else:
+                    print(f"\033[97m Attempts left: {2-i}")
+            else:
+                return 
             for data in listdata:
                 if( username == data["username"] and password == data["password"] and role == data["role"]):
                     print("\033[92m login successful ! ")
-                    write_log("Login success: " + data["username"])
+                    write_log("Login success: " , data["username"])
                     if role == "admin":
                         ob = AdminMenu()
                         ob.show_menu()
@@ -30,6 +57,7 @@ class Info:
                     return
                     
             print("\033[91m Invalid username and password!")
-            write_log(f"Invalid username{username} and password{password}!")
+            
         except Exception as e:
-            print(e)
+            print("Error:",e)
+            write_log("ERROR", f"Error during signup: {e}")

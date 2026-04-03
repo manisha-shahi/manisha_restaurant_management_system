@@ -8,7 +8,7 @@ class Read_mode:
                 data = json.load(file)
                 return data
         except Exception as e:
-            print(e)
+            print("Error:",e)
             return []
 
    

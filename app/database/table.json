@@ -3,17 +3,19 @@
         "table_id": 1,
         "capacity": 2,
         "status": "booked",
-        "customer_name": "Karan"
+        "customer_name": "Mayank"
     },
     {
         "table_id": 2,
         "capacity": 4,
-        "status": "available"
+        "status": "booked",
+        "customer_name": "Himani"
     },
     {
         "table_id": 3,
         "capacity": 4,
-        "status": "available"
+        "status": "booked",
+        "customer_name": "Bhawana"
     },
     {
         "table_id": 4,
