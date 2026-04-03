@@ -13,3 +13,35 @@
 2026-04-01 11:48:52.692950-Login success: tanuja
 2026-04-01 11:51:02.452928-Login success: tanuja
 2026-04-01 11:51:30.261494-order save successfully : 
+2026-04-02 14:03:53.393763 - Login success:  - tanuja
+2026-04-02 14:14:52.935793 - ERROR - Error during signup: write_log() missing 1 required positional argument: 'message'
+2026-04-02 14:15:55.511190 - Login success:  - tanuja
+2026-04-02 14:17:20.984014 - booked successfully : - Mayank
+2026-04-02 14:17:27.471563 - ERROR - Error during signup: write_log() missing 1 required positional argument: 'message'
+2026-04-02 14:26:22.725190 - ERROR - Error during signup: 'Json_Class' object has no attribute 'write_flieswrite_file'
+2026-04-02 14:31:45.580569 - ERROR - Error during signup: 'dict' object has no attribute 'append'
+2026-04-02 14:36:21.515730 - ERROR - Error during signup: 'Json_Class' object has no attribute 'write_flieswrite_file'
+2026-04-02 14:38:17.484629 - ERROR - Error during signup: list indices must be integers or slices, not str
+2026-04-02 14:42:39.882423 - Login success:  - aarabh
+2026-04-02 14:43:53.836723 - booked successfully : - Himani
+2026-04-02 14:44:09.211281 - ERROR - Error during signup: write_log() missing 1 required positional argument: 'message'
+2026-04-02 14:57:08.968601 - Login success:  - tanuja
+2026-04-02 14:57:16.305500 - ERROR - Error during signup: write_log() missing 1 required positional argument: 'message'
+2026-04-02 15:02:12.799219 - Login success:  - tanuja
+2026-04-02 15:02:42.505511 - ERROR - Error during signup: write_log() missing 1 required positional argument: 'message'
+2026-04-02 15:05:43.247530 - ERROR - Error during signup: write_log() missing 1 required positional argument: 'message'
+2026-04-02 15:09:43.903171 - Login success:  - tanuja
+2026-04-02 15:10:11.360980 - ERROR - Error during signup: write_log() missing 1 required positional argument: 'message'
+2026-04-03 10:35:09.760165 - Login success:  - tanuja
+2026-04-03 10:36:05.656088 - booked successfully : - Bhawana
+2026-04-03 10:40:20.877020 - Login success:  - manishashahi
+2026-04-03 10:40:23.361448 - ERROR - Error during signup: ' half_plate'
+2026-04-03 10:41:39.253640 - ERROR - Error during signup: invalid literal for int() with base 10: 'gfh'
+2026-04-03 10:58:43.867897 - Login success:  - manishashahi
+2026-04-03 11:14:44.157583 - ERROR - Error during signup: list indices must be integers or slices, not str
+2026-04-03 11:16:45.980692 - ERROR - Error during signup: list indices must be integers or slices, not str
+2026-04-03 11:17:14.416989 - Login success:  - babita
+2026-04-03 11:20:18.427861 - food updated successfully : - Methi Lassi
+2026-04-03 11:21:12.517831 - Login success:  - tanuja
+2026-04-03 11:56:52.813082 - ERROR - Error during signup: write_log() takes 2 positional arguments but 3 were given
+2026-04-03 11:59:02.750590 - Signup successful:  - jhgjg
